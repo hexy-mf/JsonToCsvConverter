@@ -20,6 +20,10 @@
         file-select="text"
         file-loaded="jsonFileLoaded()"
         file-error="handleError($error)">
+        <br>
+        <select ng-model="file.root" ng-show="file.roots && file.roots.length > 0" ng-change="processFile()">
+          <option ng-repeat="root in file.roots" value="{{ root }}">{{ root }}</option>
+        </select>
     </form>
     <pre>{{ csv }}</pre>
     <input name="downloadFileButton" type="button" ng-click="downloadFile(csv)" ng-show="csv" value="Save File"></input>

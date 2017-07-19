@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('jsonToCSV')
   .controller('ParseController', ['$rootScope', '$scope', 'PapaParse', 'FileDownloadService' ,
   function($rootScope, $scope, PapaParse, FileDownloadService) {
@@ -7,7 +8,9 @@ angular.module('jsonToCSV')
       var obj = JSON.parse($scope.file.data);
       var fieldCollector = obj instanceof Array ? [$rootScope.OBJECT_ROOT_ELEMENT] : [];
       fieldCollector = fieldCollector.concat(processObject(obj));
+      //TODO: Deduplicate into a tree structure or with subscripts.
       console.log("Fields:" + fieldCollector.join(','));
+      $scope.$apply($scope.file.roots = fieldCollector);
     };
     
     $scope.processFile = function() {

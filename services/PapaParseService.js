@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('jsonToCSV').config(['$provide',
 function($provide){
   $provide.factory('PapaParse', function() {
@@ -12,6 +13,7 @@ function($provide){
       var parseJson = function(jsonFile) {
         if(jsonFile)
         {
+          /* global Papa */
           return Papa.unparse(jsonFile, config);
         }
       };
