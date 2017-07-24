@@ -51,11 +51,11 @@ angular.module('jsonToCSV')
     };
     
     function processObject(obj){
-      var fieldCollector = [];
+      var fieldCollector = new LinkedList();
       for(var fieldName in obj){
         var field = obj[fieldName];
         if(field instanceof Array){
-          fieldCollector.push(fieldName);
+          fieldCollector.add(field);
         }
         if(typeof field === 'object' && field !== null && field !== undefined){
           fieldCollector = fieldCollector.concat(processObject(field));
