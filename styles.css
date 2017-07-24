@@ -2,3 +2,10 @@
 .hidden {
   visibility: hidden;
 }
+.donate {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    bottom: 0;
+    alignment-baseline: central;
+}

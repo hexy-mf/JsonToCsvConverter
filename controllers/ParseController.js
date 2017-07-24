@@ -6,11 +6,25 @@ angular.module('jsonToCSV')
     
     $scope.jsonFileLoaded = function() {
       var obj = JSON.parse($scope.file.data);
-      var fieldCollector = obj instanceof Array ? [$rootScope.OBJECT_ROOT_ELEMENT] : [];
-      fieldCollector = fieldCollector.concat(processObject(obj));
+      //var fieldCollector = obj instanceof Array ? [$rootScope.OBJECT_ROOT_ELEMENT] : [];
+      // fieldCollector = fieldCollector.concat(processObject(obj));
       //TODO: Deduplicate into a tree structure or with subscripts.
-      console.log("Fields:" + fieldCollector.join(','));
-      $scope.$apply($scope.file.roots = fieldCollector);
+      //console.log("Fields:" + fieldCollector.join(','));
+      //$scope.$apply($scope.file.roots = fieldCollector);
+      if(obj instanceof Array)
+      {
+        $scope.processFile();
+      }
+      else
+      {
+        alert("Root of document must be an array.");
+        $scope.$apply(function(){
+            $scope.csv = null;
+            /* global jsonFileForm */
+            jsonFileForm.reset();
+        }
+        );
+      }
     };
     
     $scope.processFile = function() {
