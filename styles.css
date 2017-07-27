@@ -3,9 +3,6 @@
   visibility: hidden;
 }
 .donate {
-    width: 730px;
+    width: 100%;
     height: 550px;
-    position: absolute;
-    bottom: 0;
-    alignment-baseline: central;
 }
