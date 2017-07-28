@@ -16,6 +16,7 @@
   <script src="controllers/ParseController.js"></script>
   <script src="js/adsterra.js"></script>
   <script type="text/javascript" src="//www.bnserving.com/invoke.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body ng-controller="ParseController">
     <p>This tool currently utilizes the PapaParse library in order to parse a JSON file back to CSV.<br>
@@ -51,10 +52,19 @@
       </form>
       <pre>{{ csv }}</pre>
       <input name="downloadFileButton" type="button" ng-click="downloadFile(csv)" ng-show="csv" value="Save File"></input>
-    </div>
-    <div>
-      <object class="donate" data="test.html">
-    </div>
-    
+  </div>
+  <div class="report-issues">
+    <a class="github-button" 
+      href="https://github.com/hexy-mf/JsonToCsvConverter/issues" 
+      data-icon="octicon-issue-opened" 
+      data-size="large" 
+      data-show-count="false" 
+      aria-label="Issue hexy-mf/JsonToCsvConverter on GitHub">
+      Issue/Feature Request
+    </a>
+  </div>
+  <div class-footer>
+    <object class="donate" data="test.html" style="border: 0">
+  </div>
 </body>
 </html>
