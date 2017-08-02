@@ -3,6 +3,7 @@
 <head>
   <meta name="description" value="">
   <meta name="keywords" value="JSON,json,CSV,csv,convert">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JSONToCsvConverter</title>
   <link rel="stylesheet" href="styles.css">
   <script src="papaparse.min.js"></script>
@@ -17,11 +18,12 @@
   <script src="js/adsterra.js"></script>
   <script type="text/javascript" src="//www.bnserving.com/invoke.js"></script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <link rel="stylesheet" href="https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-nord.min.css">
 </head>
 <body ng-controller="ParseController">
     <p>This tool currently utilizes the PapaParse library in order to parse a JSON file back to CSV.<br>
     The JSON file root element must be an array.  In the future this limitation will be removed.</p>
-    <label>For Example:</label>
+    <p>For Example:</p>
     <pre>
 [ 
   {  
@@ -35,22 +37,14 @@
 ]
   </pre>
   <div>
-    <form name="jsonFileForm">
-      <label>Json File:</label>&nbsp;&nbsp;
-      <input id="jsonFileInput" 
+      <label for="jsonFileInput" class="button">Json File:</label>
+      <input id="jsonFileInput"
         ng-model="file.data" 
         type="file"
         file-select="text"
         file-loaded="jsonFileLoaded()"
         file-error="handleError($error)">
-        <br>
-        <!--
-        <select ng-model="file.root" ng-show="file.roots && file.roots.length > 0" ng-change="processFile()">
-          <option ng-repeat="root in file.roots" value="{{ root }}">{{ root.parent + "_" + root.name }}</option>
-        </select>
-        -->
-      </form>
-      <pre>{{ csv }}</pre>
+      <pre ng-show="csv">{{ csv }}</pre>
       <input name="downloadFileButton" type="button" ng-click="downloadFile(csv)" ng-show="csv" value="Save File"></input>
   </div>
   <div class="report-issues">
